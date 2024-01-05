@@ -19,13 +19,15 @@ void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 }
 
 /**
- * btlo_helper - Helper function for level-order traversal.
+ * binary_helper - Helper function for level-order traversal.
  * @tree: The tree to traverse.
  * @func: Pointer to a function to call for each node.
  * @level: The level of the tree to call func upon.
  */
 void binary_helper(const binary_tree_t *tree, void (*func)(int), size_t level)
 {
+	if (!tree)
+		return;
 	if (level == 1)
 		func(tree->n);
 	else

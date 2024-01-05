@@ -64,5 +64,5 @@ void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
 
 /* helper functions */
 int power(int x, int y);
-void binary_helper(const binary_tree_t *tree, void (*func)(int), size_t level)
+void binary_helper(const binary_tree_t *tree, void (*func)(int), size_t level);
 #endif /* _BINARY_TREES_H_ */
