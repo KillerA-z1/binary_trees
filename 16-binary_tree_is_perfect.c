@@ -10,6 +10,7 @@ int power(int x, int y);
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
 	size_t height, size;
+	size_t  pow;
 
 	if (!tree)
 		return (0);
@@ -20,7 +21,8 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 	height = binary_tree_height(tree);
 	size = binary_tree_size(tree);
 
-	return ((1ULL << (height + 1)) - 1 == size);
+	pow = (size_t)power(2, height + 1);
+	return (pow - 1 == size);
 }
 
 /**
