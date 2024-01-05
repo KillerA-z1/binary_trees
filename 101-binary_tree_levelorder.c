@@ -15,7 +15,7 @@ void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 	maxlevel = binary_tree_height(tree) + 1;
 
 	for (level = 1; level <= maxlevel; level++)
-		btlo_helper(tree, func, level);
+		binary_helper(tree, func, level);
 }
 
 /**
@@ -24,14 +24,14 @@ void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
  * @func: Pointer to a function to call for each node.
  * @level: The level of the tree to call func upon.
  */
-void btlo_helper(const binary_tree_t *tree, void (*func)(int), size_t level)
+void binary_helper(const binary_tree_t *tree, void (*func)(int), size_t level)
 {
 	if (level == 1)
 		func(tree->n);
 	else
 	{
-		btlo_helper(tree->left, func, level - 1);
-		btlo_helper(tree->right, func, level - 1);
+		binary_helper(tree->left, func, level - 1);
+		binary_helper(tree->right, func, level - 1);
 	}
 }
 
@@ -44,8 +44,7 @@ void btlo_helper(const binary_tree_t *tree, void (*func)(int), size_t level)
  */
 size_t binary_tree_height(const binary_tree_t *tree)
 {
-	size_t height_l = 0;
-	size_t height_r = 0;
+	size_t height_l, height_r;
 
 	if (!tree)
 		return (0);
